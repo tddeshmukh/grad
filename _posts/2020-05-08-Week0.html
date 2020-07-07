@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Week 0"
+subtitle: "Background reading and findings from relevant articles"
+date: 2020-05-07 18:00:00 -0400
+background: '/img/bg-post.jpg'
+---
+
+<p>In Week 0, I focused mainly on background readings for cybersecurity concepts as well as readings specific to the LightCommands project. To better understand cyberattack methods, I learned about side channel attacks as well as hardware attacks. Additionally, for the LightCommands project, I began reading about the theory behind the photoacoustic effect. While there were many papers that provided insight, three that I found especially useful are highlighted below:
+</p>
+
+<h2 class="section-heading">Upon the Production and Reproduction of Sound by Light</h2>
+
+<p>This paper is Alexander Graham Bell’s original work in the discovery of the photoacoustic effect. The original experiment was as follows: light is directed towards a flexible plane mirror and then reflected onto a piece of selenium. When a speaker’s voice is directed towards the mirror, the vibrations of the mirror result in an oscillating beam of light hitting the selenium. Selenium, whose electrical resistance varies depending on incoming intensity of light, is able to transmit signals to a different location. </p>
+
+<p>However, as a consequence of trying to find the best material for audio transmission, Bell found that replacing selenium with any material does not entirely diminish all of the audio. Any substance (even those that are insulators) created in the form of a thin diaphragm, could transmit audio through a tube. Bell attributed this phenomenon, now known as the photoacoustic effect, to light creating vibrations of the diaphragm and those vibrations producing sound waves.</p>
+
+<h2 class="section-heading">Photoacoustics, a Historical Review</h2>
+
+<p><i>Photoacoustics, a Historical Review</i> walks through various developments in technology utilizing the photoacoustic effect. Additionally, the paper also provides more detail on the physical models describing mechanisms producing the effect, mainly focusing on photothermal mechanisms. I will walk through the thermal piston model specifically since it may describe the mechanism behind the photoacoustic effect in MEMs microphones.</p>
+
+<p>In the thermal piston model, a sample is sealed in a chamber with coupling gas. When a beam of modulated light hits the chamber, it heats up initial molecules which then propagate the signal throughout the chamber as a thermal wave. This allows the gas to undergo periodic expansion and contraction that creates a sound wave which can be picked up by microphones. As a consequence of this model, photothermal and photoacoustic spectroscopy have evolved into favorable ways to study the composition of gases.</p>
+
+<p>While MEMs microphones do not contain a sealed chamber where this effect may occur, it is possible that atmospheric gas concentrations are able to produce similar thermal and sound waves. A paper that explores this is highlighted in the final section.</p>
+
+<h2 class="section-heading">Photoacoustic Communications via Absorption of Light by Atmospheric H2O</h2>
+
+<p>While other experiments of the photoacoustic effect rely on different mediums in specific concentrations, this paper stood out because it proposed using atmospheric H2O as a medium for communication. This experiment opens up new avenues of possibility to send acoustic signals to a user that does not have access to a physical communication device.</p>
+
+<p>The core experiment relied on atmospheric optical absorption to determine the optimal wavelength of the laser which was then sent in quick pulses towards a microphone. Laser light hitting ambient H2O in the air was absorbed then quickly converted to sound which was then picked up by the microphone, indicating that sound was being transmitted solely due to the laser light.  The same effect was achieved if the beam of light was rapidly sweeping the area (faster than the speed of sound) rather than sending pulses of light. </p>
+

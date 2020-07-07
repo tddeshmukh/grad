@@ -1,0 +1,64 @@
+---
+layout: post
+title: "Week 5"
+subtitle: "Wavelength and Laser Heating Updates"
+date: 2020-06-15 18:00:00 -0400
+background: '/img/posts/week5/WavelengthEField.png'
+---
+
+<p>
+    This week, we worked on adding wavelength to the laser beam for the photoacoustic models. Additionally, based on preliminary results from previous weeks, we are seeing the photoacoustic effect does not produce vibrations high enough in the diaphragm. So, to test the maximum possible vibrations, we simplified the laser heating of silicon (section II below) and found that the maximum thermal expansion of the diaphragm to be 10^-10m. 
+</p>
+
+<h2 class="section-heading">
+    Wavelength
+</h2>
+
+<p>
+    The comsol module to integrate wavelength with laser heating represents light as a combination of two electric fields. One of the fields represents the frequency of pulses, and the other is the frequency of light. An example is seen below: 
+</p>
+
+<img src="/research/img/posts/week5/WavelengthEField.png" width=500 >
+
+<img src="/research/img/posts/week5/Uniform-ishEField.png" width=500 >
+
+<p>
+    Coupling light with the heat transfer physics was a difficult task because of divergence in the temperature field which took up too much memory on comsol’s solving configurations. However, we were able to see some initial temperature dependency assuming a uniform boundary electric field. The next steps in advancing the wavelength model is to create the same laser beam profile as before (gaussian, circular intersection with silicon) and to incorporate this into existing models. Additionally, the photovoltaic effect relies on wavelength, so we hope to use the tools gained from this modeling effort in attempts to model the photovoltaic effect. 
+</p>
+
+<h2 class="section-heading">
+    Simplified Laser Heating
+</h2>
+
+<p>
+    The results of the previous weeks’ models in representing the photoacoustic effect have indicated that the results are too small in magnitude to contribute significantly towards the LightCommands attack. As additional evidence, we modeled the laser heated silicon so that one side of the diaphragm was kept at a constant temperature 293.5 degrees K while the other was kept at 300 degrees K. This is the approximate temperature difference we observed after one pulse of the laser hits the silicon. We then measured the maximum thermal expansion of the silicon. What we found is that the diaphragm only has the ability to expand 10^-10m as seen below:
+</p>
+
+<img src="/research/img/posts/week5/MaxVibration.png" width=500 >
+
+<h2 class="section-heading">
+    Weekly Article
+</h2>
+
+<p>
+    This week, I read Cocaine Noodles as well as Skill Squatting Attacks on Amazon Alexa to get a better understanding of software-oriented attacks on voice operated devices. The attack in Cocaine Noodles exploits how voice controlled systems are listening for specific keywords (first in activation, and then in performing other commands). By creating clips that have the same key audio characteristics as the commands for the system, yet do not sound like plausible attack sequences to humans, an attacker can successfully manipulate Google Home. 
+</p>
+
+<p>
+    Skill Squatting Attacks on Amazon Alexa exploits vulnerabilities where Alexa cannot distinguish between two phonetically similar phrases such as “Coal” and “Call”. Skills, or voice-driven access to products and services, can be utilized by an attacker to route users to a malicious service by leveraging systematic audio interpretation errors. I found this paper to be more impactful than Cocaine Noodles since the attack was more clearly defined and more thoroughly tested. Additionally, the implications of the attack such as phishing, stealing credentials of users, etc. are jarring considering the growing popularity of voice-activated systems. 
+</p>
+
+
+<h2 class="section-heading">
+    References
+</h2>
+
+<p>
+    [1] https://www.usenix.org/conference/woot15/workshop-program/presentation/vaidya
+</p>
+
+<p>
+    [2] https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-kumar.pdf
+</p>
+
+

@@ -1,0 +1,97 @@
+---
+layout: post
+title: "Week 7"
+subtitle: "Numerical Simulations"
+date: 2020-06-30 18:00:00 -0400
+background: '/img/posts/week7/Uz.png'
+---
+
+<h2 class="section-heading">
+    Comsol Verification of the Mathematical Model
+</h2>
+
+<p>
+    The maximum displacement that we calculated in last week’s model was verified by applying a stress at equivalent magnitude to the diaphragm. This yields results with a magnitude of 1e-6 m displacement and matches what we calculated from the mathematical simulation. 
+</p>
+
+<p>
+    However, the result is largely different from the 1e-9 displacement by simple thermal heating. It is unclear whether this is a result of incorrect initial parameters/constants for the silicon wafer, or whether there are more effects on the disk that need to be considered as they may produce results at a greater magnitude. One such effect is concentration-deformation, which is non-thermal in nature and often observed in semiconductor materials. To test concentration deformation, we would need to enable compression of the disk. This would involve adding springs to the edges of the disk and allowing some expansion and compression as necessary. We are currently working on adding this to comsol (more on this in next week’s blog post). 
+</p>
+
+
+<h2 class="section-heading">
+    Off-center Laser
+</h2>
+
+<p>
+    Shining the laser off-center rather than at the middle of the diaphragm produces larger vibrations experimentally. This was tested in comsol, and maximum displacement occurred when the laser was focused at <b>0.7*radius</b>.The reasoning behind this is unclear. We expect the material to have the greatest elasticity at the center since the edges have a radial stress applied as the material is clamped down. The numerical analysis in the next section of the blog post does provide some evidence that this is true (see the stress vs radius graph). More investigation is needed to understand the physics behind this observation. 
+</p>
+
+<h2 class="section-heading">
+    Numerical Analysis in Matlab
+</h2>
+
+<p>
+    Two papers, <i>Quasi-static thermal stresses in a thick circular plate</i> [1] and <i>A Note on Quasi-static Thermal Deflection of a Thin Clamped Circular Plate</i> [2] provide solutions for thermoelastic displacement functions through a disk similar to the diaphragm of the microphone that we are observing. 
+</p>
+
+<p>
+    The first paper considers a scenario where the top surface and bottom surfaces of a disk have a constant temperature difference. Utilizing the dimensions of the diaphragm along with their displacement equations, the displacement in the z direction varies as follows: 
+</p>
+
+<img src="/research/img/posts/week7/Uz.png" width=500 >
+
+<p>
+    This meets the boundary conditions of a clamped plate (0 movement as r = radius of the diaphragm), but the vibrational mode is different from what we see in comsol simulations. Double checking the stress in the z direction gives a similar result: 
+</p>
+
+<img src="/research/img/posts/week7/stress.png" width=500 >
+
+<p>
+    The second paper looks at “ramp-up” heating in a thermally thin disk where the temperature is increased during a small time frame, and then kept steady. From this paper, we are most interested in replicating the displacement at the center of the diaphragm. However, we ran into some problems as the values we were obtaining while trying to replicate their results for an Al disk were twice what was expected.
+</p>
+
+<img src="/research/img/posts/week7/ramp-up.png" width=500 >
+
+<p>
+    The graph above is the displacement (y-axis) at the center of an Al disk over the ramp-up heating time period (x-axis). The displacement after the time of heating (t = 4) is the maximum displacement that we would expect to see for that disk since the greatest amount of heat is applied. 
+</p>
+
+<p>
+    The numerical analysis in paper 2 is closer to what we are looking for since we would like to model time dependent heating. We attempted to replicate the results in paper 2 for the specific constraints of the microphone diaphragm, and the analysis for that is ongoing (more on this in next week’s blog post).
+</p>
+
+<h2 class="section-heading">
+    Article of the Week: Electromagnetic Induction Attacks Against Embedded Systems [3]
+</h2>
+
+<p>
+    Similar to <i>Ghost Talk</i> and <i>Trick or Heat?</i>, <i>Electromagnetic Induction Attacks Against Embedded Systems</i> utilizes EMI to manipulate sensor input and output; however, this paper is unique since it focuses on magnetic near-field coupling. By generating a magnetic field on one circuit, the current (and voltage) of a nearby circuit can be changed through Faraday’s law of induction. This can occur before digitization of sensor information, and thus an attacker can trick the system into thinking the data it is receiving is reliable. 
+</p>
+
+<p>
+    While this paper develops the theory on how the attack is occurring in detail, there is little information given on application of the attack (which models of sensors that are vulnerable, common devices that can be hacked, etc). Additionally, there are no defenses provided for the attack. This combination along with the small distance range for the attack makes it weaker than the possibilities presented in <i>Ghost Talk</i> and <i>Trick or Heat?</i>.
+</p>
+
+<h2 class="section-heading">
+    References
+</h2>
+
+<p>
+    [1] https://www-sciencedirect-com.proxy.lib.umich.edu/science/article/pii/S0307904X06001090
+</p>
+
+<p>
+    [2] https://www.sciencedirect.com/science/article/abs/pii/0016003273900598
+</p>
+
+<p>
+    [3] https://dl.acm.org/doi/10.1145/3196494.3196556
+</p>
+
+
+
+
+
+
+
