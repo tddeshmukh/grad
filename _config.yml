@@ -1,13 +1,13 @@
-title:              Astronomy Research
-email:              tddeshm@umich.edu
+title:              Graduate School Blog
+email:              tddeshm@uchicago.edu
 description:        Tanvi Deshmukh
 author:             Tanvi Deshmukh
-baseurl:            "/astro-research"
-url:                "https://tddeshm.github.io"
+baseurl:            "/grad"
+url:                "https://tddeshmukh.github.io"
 
 # Social Profiles
 twitter_username:   
-github_username:    tddeshm
+github_username:    tddeshmukh
 facebook_username:  tanvi.deshmukh.148
 linkedin_username:
 
